@@ -2,6 +2,23 @@
  * @OnlyCurrentDoc Limits the script to only accessing the current spreadsheet.
  */
 
+function onInstall() {
+  onOpen();
+}
+function onOpen() {
+  SpreadsheetApp.getUi().createAddonMenu()
+    .addItem('Use in this spreadsheet', 'use')
+    .addToUi();
+}
+function use() {
+  var ui = SpreadsheetApp.getUi();
+  ui.alert(
+    'Loan Calculation Functions',
+    'Custom functions are now available.',
+    ui.ButtonSet.OK
+  );
+}
+
 /**
  * @customfunction
  */
